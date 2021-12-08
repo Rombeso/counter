@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import {Button} from "./Components/Button";
 
 type dateTypeProps = {
     date:number;
@@ -21,8 +22,10 @@ export const Counter =(props: dateTypeProps)=> {
                 <span className={props.date === 5 ? 'error' : ''}>{props.date}</span>
             </div>
             <div className='SquareMin'>
-                <button disabled={props.date === 5} onClick={()=>{onClickIncHandler()} }>inc</button>
-                <button onClick={()=>{onClickResetHandler()}}>reset</button>
+                {/*<button disabled={props.date === 5} onClick={()=>{onClickIncHandler()} }>inc</button>*/}
+                {/*<button onClick={()=>{onClickResetHandler()}}>reset</button>*/}
+                <Button callBack={onClickIncHandler} name='inc' date={props.date} />
+                <Button name='reset' callBack={onClickResetHandler}/>
             </div>
         </div>
     )

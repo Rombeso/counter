@@ -1,5 +1,4 @@
 import React, {useState} from 'react';
-import logo from './logo.svg';
 import './App.css';
 import {Counter} from "./Counter";
 
@@ -13,15 +12,7 @@ function App() {
 
     const changeDate = (value: number)=> {
         let inc = value
-        if (inc !== 0) {
-            date = date + inc
-        } else {
-         date = 1
-        }
-        return (
-            setDate(date)
-        )
-
+        setDate(inc !== 0 ? date = date + inc : date = 1)
     }
 
     return (
