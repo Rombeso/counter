@@ -1,0 +1,59 @@
+.App {
+  text-align: center;
+  background-color: #282c34;
+  height: 2000px;
+}
+
+
+.App-header {
+  padding-top: 40px;
+}
+
+.Square {
+  display: grid;
+  margin-right: auto;
+  margin-left: auto;
+  width: 330px;
+  height: auto;
+  border: 4px solid #61dafb;
+  border-radius: 10px;
+}
+
+.SquareMin {
+  display: flex;
+  margin-right: auto;
+  margin-left: auto;
+  width: 300px;
+  height: 100px;
+  border: 4px solid #61dafb;
+  border-radius: 10px;
+  margin: 10px;
+}
+
+.SquareMinTop {
+  background-color: #61dafb;
+  border-radius: 10px;
+  margin: 10px;
+}
+
+button {
+  display: flex;
+  margin: 10px;
+  margin-right: auto;
+  margin-left: auto;
+  font-size: 50px;
+  border-radius: 10px;
+  background-color: #61dafb;
+}
+
+span {
+  color: #282c34;
+  font-size: 80px;
+  margin-bottom: auto;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.error {
+  color: crimson;
+}
