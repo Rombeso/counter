@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import './App.css';
 import {Counter} from "./Counter";
+import {Settings} from "./Settings";
 
 type datePropsType = {
     data: number
@@ -18,7 +19,8 @@ function App() {
     return (
         <div className="App">
             <header className='App-header'>
-                    <Counter
+                <Settings />
+                <Counter
                         date={date}
                         changeDate={changeDate}
                     />
