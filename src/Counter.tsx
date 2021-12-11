@@ -1,19 +1,23 @@
 import React, {useState} from "react";
 import {Button} from "./Components/Button";
 
-type dateTypeProps = {
-    date:number;
-    changeDate:(value: number) => void
-
+type DateTypeProps = {
+    date:number
+    setDate:(value:number)=>void
+    changeDate: (minValue: any)=>void
+    minValue: any
 }
-export const Counter =(props: dateTypeProps)=> {
+export const Counter =(props: DateTypeProps)=> {
 
-    const onClickIncHandler = ()=> {
-        props.changeDate(1)
+    const onClickHandler = ()=> {
+        let newDate = props.date + 1;
+        props.setDate(newDate)
     }
 
-    const onClickResetHandler = ()=> {
-        props.changeDate(0)
+    const onClickReset = () => {
+        props.changeDate(+props.minValue)
+        console.log(props.minValue)
+
     }
 
     return (
@@ -22,10 +26,8 @@ export const Counter =(props: dateTypeProps)=> {
                 <span className={props.date === 5 ? 'error' : ''}>{props.date}</span>
             </div>
             <div className='SquareMin'>
-                {/*<button disabled={props.date === 5} onClick={()=>{onClickIncHandler()} }>inc</button>*/}
-                {/*<button onClick={()=>{onClickResetHandler()}}>reset</button>*/}
-                <Button callBack={onClickIncHandler} name='inc' date={props.date} />
-                <Button name='reset' callBack={onClickResetHandler}/>
+                <Button callBack={onClickHandler} name='inc' date={props.date} />
+                <Button name='reset' callBack={()=>onClickReset()}/>
             </div>
         </div>
     )

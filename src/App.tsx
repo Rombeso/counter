@@ -3,26 +3,27 @@ import './App.css';
 import {Counter} from "./Counter";
 import {Settings} from "./Settings";
 
-type datePropsType = {
-    data: number
-}
 
 function App() {
-    let [date, setDate] = useState(1)
-
-
-    const changeDate = (value: number)=> {
-        let inc = value
-        setDate(inc !== 0 ? date = date + inc : date = 1)
+    let [date, setDate] = useState(0)
+    let [minValue, setMinValue] = useState(0)
+    const changeDate = (minValue: number)=> {
+        setDate(date === minValue ? date = date + 1 : date = minValue)
     }
 
     return (
         <div className="App">
             <header className='App-header'>
-                <Settings />
+                <Settings changeDate={changeDate}
+                          minValue={minValue}
+                          setMinValue={setMinValue}
+                />
                 <Counter
                         date={date}
+                        setDate={setDate}
                         changeDate={changeDate}
+                        minValue={minValue}
+
                     />
             </header>
         </div>
