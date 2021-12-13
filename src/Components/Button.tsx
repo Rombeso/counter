@@ -4,6 +4,8 @@ type PropsType = {
     callBack: ()=>void
     name: string
     date?: number
+    maxValue?: any
+    error?: string | null
 }
 
 export const Button = (props: PropsType) => {
@@ -13,6 +15,7 @@ export const Button = (props: PropsType) => {
     }
 
     return (
-        <button disabled={props.date ? props.date === 5 : false} onClick={onClickHandler}>{props.name}</button>
+        <button disabled={!!props.error} onClick={onClickHandler}>{props.name}</button>
     )
 }
+// <button disabled={props.date ? props.date == props.maxValue : false} onClick={onClickHandler}>{props.name}</button>
