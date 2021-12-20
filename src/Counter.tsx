@@ -35,9 +35,6 @@ export const Counter =(props: DateTypeProps)=> {
 
     }
 
-    // const titleFunc = () =>{
-    //     if (props.pressSet )
-    // }
     console.log(props.date)
     console.log(props.pressSet)
     console.log(props.errorSettings)

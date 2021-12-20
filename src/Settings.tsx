@@ -1,5 +1,6 @@
 import React, {ChangeEvent, useEffect, useState} from "react";
 import {Button} from "./Components/Button";
+import {Input} from "./Components/Input";
 
 type datePropsType = {
     changeDate: (minValue: number) => void
@@ -37,12 +38,12 @@ export const Settings = (props: datePropsType) => {
         props.setMaxValue(maxValue)
         pressSetClear()
     }
-    const onChangeHandlerMin = (e: ChangeEvent<HTMLInputElement>) => {
-        props.setMinValue(+e.currentTarget.value)
+    const onChangeHandlerMin = (value: number) => {
+        props.setMinValue(value)
         pressSet()
     }
-    const onChangeHandlerMax = (e: ChangeEvent<HTMLInputElement>) => {
-        props.setMaxValue(+e.currentTarget.value)
+    const onChangeHandlerMax = (value: number) => {
+        props.setMaxValue(value)
         pressSet()
     }
 
@@ -65,17 +66,11 @@ export const Settings = (props: datePropsType) => {
             <div className='SquareMin, SquareMinTop'>
                 <div className='divSettings'>
                     <span className='SpanSettings'>max value:</span>
-                    <input className='InputSettings' type='number'
-                           onChange={onChangeHandlerMax}
-                           value={props.maxValue}
-                    />
+                    <Input onChangeHandler={onChangeHandlerMax} value={props.maxValue} className={'InputSettings'} />
                 </div>
                 <div className='divSettings'>
                     <span className='SpanSettings'>min value:</span>
-                    <input className='InputSettings' type='number'
-                           onChange={onChangeHandlerMin}
-                           value={props.minValue}
-                    />
+                    <Input onChangeHandler={onChangeHandlerMin} value={props.minValue} className={'InputSettings'} />
                 </div>
             </div>
             <div className='SquareMin'>
