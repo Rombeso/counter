@@ -46,7 +46,7 @@ export const Settings = (props: datePropsType) => {
         pressSet()
     }
 
-    if (props.minValue >= props.maxValue) {
+    if (props.minValue >= props.maxValue || props.minValue < 0) {
         props.setErrorSettings("Incorrect value!");
     } else {
         props.setErrorSettings(null);

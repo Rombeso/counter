@@ -46,9 +46,7 @@ export const Counter =(props: DateTypeProps)=> {
         <div className='Square'>
             <div className='SquareMin, SquareMinTop'>
                 <span className={props.date === props.maxValue ? 'error' : '' || props.errorSettings ? 'error' : ''}>
-                    {props.pressSet && !props.errorSettings ? props.pressSet : props.date || props.errorSettings ? props.errorSettings : props.date}
-                    {/*{props.pressSet && !props.errorSettings ? props.pressSet : props.date || props.errorSettings ? props.errorSettings : props.date }*/}
-
+                    {!props.pressSet && !props.errorSettings ? props.date : props.pressSet && !props.errorSettings ? props.pressSet : props.date || props.errorSettings ? props.errorSettings : props.date}
                 </span>
             </div>
             <div className='SquareMin'>
