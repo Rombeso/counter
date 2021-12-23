@@ -1,6 +1,7 @@
 import React, {ChangeEvent, useEffect, useState} from "react";
 import {Button} from "./Components/Button";
 import {Input} from "./Components/Input";
+import classes from "./Settings.module.css"
 
 type datePropsType = {
     changeDate: (minValue: number) => void
@@ -61,20 +62,21 @@ export const Settings = (props: datePropsType) => {
         props.setPressSet(null)
     }
 
+
     return (
-        <div className='Square'>
-            <div className='SquareMin, SquareMinTop'>
-                <div className='divSettings'>
-                    <span className='SpanSettings'>max value:</span>
-                    <Input onChangeHandler={onChangeHandlerMax} value={props.maxValue} className={'InputSettings'} />
+        <div className={classes.square}>
+            <div className={classes.squareMin + " " + classes.squareMinTop}>
+                <div className={classes.divSettings}>
+                    <span className={classes.spanSettings}>max value:</span>
+                    <Input onChangeHandler={onChangeHandlerMax} value={props.maxValue} className={classes.inputSettings} />
                 </div>
-                <div className='divSettings'>
-                    <span className='SpanSettings'>min value:</span>
-                    <Input onChangeHandler={onChangeHandlerMin} value={props.minValue} className={'InputSettings'} />
+                <div className={classes.divSettings}>
+                    <span className={classes.spanSettings}>min value:</span>
+                    <Input onChangeHandler={onChangeHandlerMin} value={props.minValue} className={props.errorSettings ? classes.errorSettings: classes.inputSettings} />
                 </div>
             </div>
-            <div className='SquareMin'>
-                <Button error={props.errorSettings} name='set'
+            <div className={classes.squareMin}>
+                <Button className={classes.buttonSettings} error={props.errorSettings} name='set'
                         callBack={() => onClickButton(props.minValue, props.maxValue)}/>
             </div>
         </div>

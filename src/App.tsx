@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import './App.css';
 import {Counter} from "./Counter";
 import {Settings} from "./Settings";
-
+import classes from "./App.module.css"
 
 function App() {
     let [date, setDate] = useState(0)
@@ -25,8 +25,8 @@ function App() {
     }, [minValue])
 
     return (
-        <div className="App">
-            <header className='App-header'>
+        <div className={classes.app}>
+            <header className={classes.appHeader}>
                 <Settings changeDate={changeDate}
                           minValue={minValue}
                           setMinValue={setMinValue}

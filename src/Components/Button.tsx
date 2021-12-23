@@ -6,6 +6,7 @@ type PropsType = {
     date?: number
     maxValue?: any
     error?: string | null
+    className?: any
 }
 
 export const Button = (props: PropsType) => {
@@ -15,7 +16,7 @@ export const Button = (props: PropsType) => {
     }
 
     return (
-        <button disabled={!!props.error} onClick={onClickHandler}>{props.name}</button>
+        <button className={props.className} disabled={!!props.error} onClick={onClickHandler}>{props.name}</button>
     )
 }
 // <button disabled={props.date ? props.date == props.maxValue : false} onClick={onClickHandler}>{props.name}</button>

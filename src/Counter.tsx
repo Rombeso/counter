@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import {Button} from "./Components/Button";
+import classes from "./Counter.module.css"
 
 type DateTypeProps = {
     date:number
@@ -40,15 +41,15 @@ export const Counter =(props: DateTypeProps)=> {
     console.log(props.errorSettings)
 
     return (
-        <div className='Square'>
-            <div className='SquareMin, SquareMinTop'>
-                <span className={props.date === props.maxValue ? 'error' : '' || props.errorSettings ? 'error' : ''}>
+        <div className={classes.square}>
+            <div className={classes.squareMin + " " + classes.squareMinTop}>
+                <span className={props.date === props.maxValue ? classes.error : '' || props.errorSettings ? classes.errorSettings : '' || props.pressSet ? classes.pressSet : ''}>
                     {!props.pressSet && !props.errorSettings ? props.date : props.pressSet && !props.errorSettings ? props.pressSet : props.date || props.errorSettings ? props.errorSettings : props.date}
                 </span>
             </div>
-            <div className='SquareMin'>
-                <Button error={props.error || props.pressSet} callBack={onClickHandler} name='inc' date={props.date} />
-                <Button error={props.pressSet} name='reset' callBack={()=>onClickReset()}/>
+            <div className={classes.squareMin}>
+                <Button className={classes.buttonSettings} error={props.error || props.pressSet} callBack={onClickHandler} name='inc' date={props.date} />
+                <Button className={classes.buttonSettings} error={props.pressSet} name='reset' callBack={()=>onClickReset()}/>
             </div>
         </div>
     )
